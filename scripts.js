@@ -4,13 +4,13 @@ let calculo = {
   valorSalvo: null,
   funcaoParaCalcular: null
 };
-
+//adiciona evento para iniciar quando a janela carregar 
 window.addEventListener("load", function () {
   atribuirEventos();
 });
 
+//Atribui eventos para os botões da calculadora
 function atribuirEventos() {
-  //Atribui eventos aos números
   document.getElementById("btnValor0").addEventListener("click", clicarNumero);
   document.getElementById("btnValor1").addEventListener("click", clicarNumero);
   document.getElementById("btnValor2").addEventListener("click", clicarNumero);
@@ -30,6 +30,7 @@ function atribuirEventos() {
   document.getElementById("btnResultado").addEventListener("click",clicarResultado);
 };
 
+//Inserir número no display
 function clicarNumero(){
   if (isNaN(inputResultado.value)) {
     inputResultado.value = event.target.textContent;
@@ -41,7 +42,7 @@ function clicarNumero(){
     }
   }
 }
-
+//Logica de operações
 function somarValores(valor1, valor2){
   return valor1 + valor2;
 };
@@ -61,12 +62,13 @@ function dividirValores(valor1, valor2){
       return valor1 / valor2;
   }
 };
-
+//Limpeza de todos os dados do input
 function limparDados(){
   inputResultado.value = "";
   calculo.valorSalvo = null;
   calculo.funcaoParaCalcular = null;
 };
+
 
 function clicarPonto(){
   if(inputResultado.value === "" || isNaN(inputResultado.value)){
@@ -74,13 +76,6 @@ function clicarPonto(){
   }else if(!inputResultado.value.includes(".")){
       inputResultado.value = inputResultado.value + ".";
   }
-};
-
-
-function limparDados() {
-  inputResultado.value = "";
-  calculo1.valorSalvo = null;
-  calculo1.funcaoParaCalcular = null;
 };
 
 function clicarOperador() {
